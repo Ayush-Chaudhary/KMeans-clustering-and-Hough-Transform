@@ -11,5 +11,5 @@ def computeQuantizationError(origImg, quantizedImg):
     pixelsOrig = origImg.reshape((-1, 3))
     pixelsQuantized = quantizedImg.reshape((-1, 3))
     # Compute the SSD error
-    error = np.sum(np.square(pixelsOrig - pixelsQuantized))/len(pixelsOrig)
+    error = np.sum(np.square(pixelsOrig - pixelsQuantized))#/len(pixelsOrig)
     return error

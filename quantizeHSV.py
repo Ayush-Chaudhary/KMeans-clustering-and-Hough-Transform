@@ -10,7 +10,7 @@ import cv2
 
 def quantizeHSV(origimg, k):
     # Convert the image to HSV
-    hsvimg = cv2.cvtColor(origimg, cv2.COLOR_BGR2HSV)
+    hsvimg = cv2.cvtColor(origimg, cv2.COLOR_RGB2HSV)
     # Reshape the image to be a list of pixels
     pixels = hsvimg.reshape((-1, 3))
     # Fit a k-means estimator to the Hue channel
@@ -22,7 +22,7 @@ def quantizeHSV(origimg, k):
     # Replace the hue values with quantized values
     pixels[:, 0] = centers[labels].flatten()
     # Convert the image back to RGB
-    newimg = cv2.cvtColor(pixels.reshape(origimg.shape), cv2.COLOR_HSV2BGR)
+    newimg = cv2.cvtColor(pixels.reshape(origimg.shape), cv2.COLOR_HSV2RGB)
     # convert image to uint8
     newimg = np.array(newimg, dtype=np.uint8)
     centers = np.array(centers, dtype=np.uint8)

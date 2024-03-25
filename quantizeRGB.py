@@ -11,7 +11,6 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 # Use built in kmeans function from sklearn
-
 def quantizeRGB(origimg, k):
     # Reshape the image to be a list of pixels
     pixels = origimg.reshape((-1, 3))
